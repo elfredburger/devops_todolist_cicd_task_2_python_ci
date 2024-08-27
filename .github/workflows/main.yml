@@ -38,9 +38,9 @@ jobs:
 
             flake8 . --exit-zero --max-complexity=10 --statistics
         - name: Generate coverage report
-          run: pytest --cov-report=xml --cov=.
+          run: pytest --cov-report=xml --cov=. --exit-zero
         - name: Test coverage
-          run: pytest  -v --cov-report=term-missing --cov=.
+          run: pytest  -v --cov-report=term-missing --cov=. --exit-zero
 
         - name: Test with pytest
           run: pytest
