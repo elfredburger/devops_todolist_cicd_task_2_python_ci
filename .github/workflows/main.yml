@@ -33,14 +33,15 @@ jobs:
           run: |
             flake8 . --show-source --statistics --exit-zero
 
-        - name: Check Complexity
-          run: |
-
-            flake8 . --exit-zero --max-complexity=10 --statistics
-        - name: Generate coverage report
-          run: pytest --cov-report=xml --cov=. --exit-zero
-        - name: Test coverage
-          run: pytest  -v --cov-report=term-missing --cov=. --exit-zero
-
         - name: Test with pytest
           run: pytest
+
+        - name: Check Complexity
+          run: flake8 . --exit-zero --max-complexity=10 --statistics
+
+        - name: Generate coverage report
+          run: pytest --cov-report=xml --cov=.
+
+        - name: Test coverage
+          run: pytest  -v --cov-report=term-missing --cov=.
+
