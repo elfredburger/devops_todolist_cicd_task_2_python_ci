@@ -45,3 +45,8 @@ jobs:
         - name: Test coverage
           run: pytest  -v --cov-report=term-missing --cov=.
 
+        - name: Upload python artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: python-artifacts
+            path: .
